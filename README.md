@@ -58,6 +58,15 @@ r.exec('./example/hello.R',null,function(result){
 ```
 
 ```javascript
+// insert data to MongoDB
+
+r.exec('./example/insertData.R',{firstName:"John", lastName:"Doe"},function(result){
+	  console.log(result);
+})
+
+```
+
+```javascript
 //get data from MongoDB and limit result only 100 records
 
 r.exec('./example/getData.R',null,'max.print=100',function(result){
@@ -69,15 +78,6 @@ var result = r.execSync('./resources/getData.R',null,'max.print=100');
 
 ```
 
-
-```javascript
-// insert data to MongoDB
-
-r.exec('./example/insertData.R',{firstName:"John", lastName:"Doe"},function(result){
-	  console.log(result);
-})
-
-```
 #### result
 - status => 200 : Successfully
          => 500 : Error
