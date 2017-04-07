@@ -40,9 +40,42 @@ but need to convert to correctly format in R script.
 - **callback** > callback function for asynchronous execution.
 
 
-
-
 ### Example
+```javascript
+//init
+const R = require('rxcute');
+var r = new R();
+
+r.exec('./example/hello.R',null,function(result){
+	  console.log(result);
+})
+
+```
+
+```javascript
+//get data from MongoDB and limit result only 100 records
+
+r.exec('./example/getData.R',null,'max.print=100',function(result){
+	  console.log(result);
+})
+
+var result = r.execSync('./resources/getData.R',null,'max.print=100');
+	console.log('result => ', result.toString())
+
+```
 
 
+```javascript
+// insert data to MongoDB
 
+r.exec('./example/insertData.R',{firstName:"John", lastName:"Doe"},function(result){
+	  console.log(result);
+})
+
+```
+#### result
+- status => 200 : Successfully
+         => 500 : Error
+- output => result as string
+* all of result need to convert to be format as you need to use.
+* for example of mongodb you need to install mongolite and jsonlite
