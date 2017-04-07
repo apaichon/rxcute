@@ -1,0 +1,5 @@
+library(mongolite)
+library(jsonlite)
+m <- mongo("users", url = "mongodb://127.0.0.1:27017/mydb")
+result <- m$find('{}')
+toJSON(result)
