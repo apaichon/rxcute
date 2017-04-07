@@ -24,6 +24,11 @@ It help to solve 2 main problems of technical and people.
 - install R
 - https://www.r-project.org/
 
+### Installation
+```javascript
+npm install rxcute
+```
+
 ### How to use
 ```javascript
 const R = require('rxcute');
